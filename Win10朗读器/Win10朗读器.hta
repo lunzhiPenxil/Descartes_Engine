@@ -1,0 +1,52 @@
+<head>
+<script>
+window.moveTo(200,100);
+window.resizeTo(300,300);
+</script>
+<hta:application scroll=no innerborder=no contextmenu=no selection=no maximizebutton=no>
+<title>Win10语音合成器</title>
+<script>
+var arr,i=0,k=0;
+function pl()
+{
+var fso=new ActiveXObject("Scripting.FileSystemObject");
+var ForReading=1;
+var g=document.getElementById("inp").value;
+fl=fso.OpenTextFile(g,ForReading);
+arr=fl.ReadAll().replace(/\r\n/g,'').split(/[,.，。！？]/);
+setTimeout('j1()',1000);
+return arr;
+}
+function j1()
+{
+document.getElementById("main").innerText=arr[i];
+document.getElementById("bo").innerText=i+'/'+arr.length;
+setTimeout('j2()',100);
+}
+function j2()
+{
+var fso=new ActiveXObject("SAPI.SpVoice");
+fso.Speak(arr[i]);
+i=i+1;
+setTimeout('j1()',100);
+return i;
+}
+function tz()
+{
+var a=prompt("从这里开始读","");
+var b=parseInt(a);
+setTimeout('pl()',1000);
+return i=b;
+}
+</script>
+<style>
+#top{position:absolute;left:0px;top:0px;width:300px;height:30px;}
+#main{position:absolute;left:0px;top:50px;width:280px;height:150px;overflow:auto;font-size:24px;color:#FFFFFF;}
+#bo{position:absolute;left:0px;top:201px;width:300px;height:30px;font-size:24px;color:#FFFFFF;}
+</style>
+</head>
+<body bgcolor=#0099FF>
+<div id=top><input id=inp type=file></input><button onClick=pl()>开始阅读</button><button onClick=tz()>跳转</button></div>
+<div id=main>语音引擎准备就绪……<p>选择一个文件,然后让电脑朗读</div>
+<div id=bo></div>
+</body>
