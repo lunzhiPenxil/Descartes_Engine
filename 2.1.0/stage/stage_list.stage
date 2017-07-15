@@ -1,0 +1,13 @@
+2 act_fill
+1 ./display/stage_0_1.display
+2 act_fill
+0 ./map/stage_0_2.dat
+2 act_fill
+1 ./display/stage_0_3.display
+2 act_fill
+0 ./map/stage_0_4.dat
+2 act_fill
+1 ./display/stage_0_5.display
+2 act_fill
+1 ./display/stage_0_6.display
+2 act_fill
